@@ -1,0 +1,19 @@
+
+API: accounts
+----------------
+POST: open
+INPUT: {
+    "customerId": str,
+    "initialBalance": float
+}
+
+GET: details/{accountId}
+
+
+API: transactions
+---------------
+POST: add
+INPUT: {
+    "accountId": str,
+    "delta": float
+}
