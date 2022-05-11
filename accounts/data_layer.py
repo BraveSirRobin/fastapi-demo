@@ -1,12 +1,16 @@
 """Data model classes and persistence adapters
 """
+from uuid import uuid4
 from typing import Dict
 from abc import ABC, abstractmethod
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
+def _uuid():
+    """A wrapper to convert a UUID to a string"""
+    return str(uuid4())
 
 class Account(BaseModel):
-    accountId: str
+    accountId: str = Field(default_factory=_uuid)
     customerId: str
     customerFirstName: str
     customerLastName: str
