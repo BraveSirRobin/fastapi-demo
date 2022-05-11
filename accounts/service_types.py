@@ -7,7 +7,7 @@ class NewAccountInput(BaseModel):
     customerId: str
     customerFirstName: str
     customerLastName: str
-    openingBalance: Optional[int]
+    openingBalance: Optional[int] = 0
 
 class NewAccountOutput(BaseModel):
     customerId: str

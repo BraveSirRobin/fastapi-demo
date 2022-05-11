@@ -8,6 +8,7 @@ authors = ["Robin Harvey <harvey.robin@gmail.com>"]
 python = "^3.9"
 fastapi = "^0.77.1"
 uvicorn = "^0.17.6"
+httpx = "^0.22.0"
 
 [tool.poetry.dev-dependencies]
 
