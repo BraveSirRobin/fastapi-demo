@@ -8,14 +8,14 @@ app = FastAPI()
 
 class NewTransactionInput(BaseModel):
     accountId: str
-    transactionPence: int
+    transactionAmount: int
 
 class NewTransactionOutput(BaseModel):
     transactionId: str
 
 class Transaction(BaseModel):
     transactionId: str
-    transactionPence: int
+    transactionAmount: int
     # TODO: transactionDate
 
 
@@ -30,7 +30,7 @@ class TransactionDatabase:
 
     def get_transactions_for_customer(self, account_id):
         return [
-            Transaction(transactionId=transaction_id, transactionPence=detail.transactionPence)
+            Transaction(transactionId=transaction_id, transactionAmount=detail.transactionAmount)
             for transaction_id, detail in self._accounts.items() if detail.accountId == account_id
         ]
 
