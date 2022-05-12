@@ -12,7 +12,7 @@ app = FastAPI()
 
 TransactionDS = InMemoryTransactionDatastore()
 
-@app.post("/new")
+@app.post("/new", response_model=TransactionDetail)
 async def new(new_trans_detail: NewTransactionInput):
     transaction: Transaction = Transaction(
         accountId=new_trans_detail.accountId,
@@ -25,8 +25,8 @@ async def new(new_trans_detail: NewTransactionInput):
         transactionDate=transaction.transactionDate
     )
 
-@app.get("/get/{account_id}")
-async def get_transactions(account_id: str) -> List[Transaction]:
+@app.get("/get/{account_id}", response_model=List[TransactionDetail])
+async def get_transactions(account_id: str):
     transactions = TransactionDS.get_transactions_for_account(account_id)
     return [
         TransactionDetail(
