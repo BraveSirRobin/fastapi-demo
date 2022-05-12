@@ -1,7 +1,5 @@
 import os
-from urllib import response
 from fastapi import FastAPI, Response, status
-import httpx
 
 from .service_types import NewAccountInput, NewAccountOutput, AccountDetails, TransactionDetail
 from .data_layer import InMemoryAccountDatastore, Account, UnknownAccountError
