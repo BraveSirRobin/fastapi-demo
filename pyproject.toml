@@ -4,11 +4,19 @@ version = "0.1.0"
 description = "Blueharvest tech test"
 authors = ["Robin Harvey <harvey.robin@gmail.com>"]
 
+[tool.pytest.ini_options]
+pythonpath = [
+  "."
+]
+
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = "^0.77.1"
 uvicorn = "^0.17.6"
 httpx = "^0.22.0"
+pydantic = {extras = ["email"], version = "^1.9.0"}
+pytest = "^7.1.2"
+python-dotenv = "^0.20.0"
 
 [tool.poetry.dev-dependencies]
 

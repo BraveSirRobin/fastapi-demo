@@ -4,11 +4,12 @@ from fastapi import FastAPI, Response, status
 from .service_types import NewAccountInput, NewAccountOutput, AccountDetails, TransactionDetail
 from .data_layer import InMemoryAccountDatastore, Account, UnknownAccountError
 from .transaction_service import TransactionService, TransactionServiceException
+from .config import AccountsServiceConfig
 
+app_config = AccountsServiceConfig()
 app = FastAPI()
-transaction_service_url = os.environ["TRANSATIONS_SERVICE_PORT"]
-
 AccountDS = InMemoryAccountDatastore()
+print(app_config.transaction_service_url)
 
 
 @app.post("/open", response_model=NewAccountOutput)
@@ -25,7 +26,7 @@ async def open(new_ac_detail: NewAccountInput):
     }
     if new_ac_detail.openingBalance > 0:
         try:
-            trans_service = TransactionService(transaction_service_url)
+            trans_service = TransactionService(app_config.transaction_service_url)
             r = await trans_service.call_new_transaction(account.accountId, new_ac_detail.openingBalance)
             response_params["openingBalanceTransaction"] = TransactionDetail(**r)
         except TransactionServiceException:
@@ -47,7 +48,7 @@ async def account_details(account_id: str, response: Response):
             "customerLastName": account.customerLastName,
         }
         try:
-            trans_service = TransactionService(transaction_service_url)
+            trans_service = TransactionService(app_config.transaction_service_url)
             transactions = await trans_service.call_get_transactions(account_id)
         except TransactionServiceException:
             response_params["faultMessage"] = "failed to fetch transactions"

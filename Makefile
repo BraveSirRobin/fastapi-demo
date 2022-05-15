@@ -2,7 +2,7 @@ ACCOUNTS_SERVICE_PORT=8000
 TRANSATIONS_SERVICE_PORT=8001
 
 run-accounts-service:
-	TRANSATIONS_SERVICE_PORT="http://localhost:${TRANSATIONS_SERVICE_PORT}" uvicorn --port ${ACCOUNTS_SERVICE_PORT} accounts.main:app --reload
+	uvicorn --port ${ACCOUNTS_SERVICE_PORT} accounts.main:app --reload
 
 run-transactions-service:
 	uvicorn --port ${TRANSATIONS_SERVICE_PORT} transactions.main:app --reload
