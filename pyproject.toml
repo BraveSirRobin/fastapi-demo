@@ -8,6 +8,7 @@ authors = ["Robin Harvey <harvey.robin@gmail.com>"]
 pythonpath = [
   "."
 ]
+asyncio_mode = "auto"
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -17,6 +18,7 @@ httpx = "^0.22.0"
 pydantic = {extras = ["email"], version = "^1.9.0"}
 pytest = "^7.1.2"
 python-dotenv = "^0.20.0"
+pytest-asyncio = "^0.18.3"
 
 [tool.poetry.dev-dependencies]
 

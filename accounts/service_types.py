@@ -12,7 +12,7 @@ class NewAccountInput(BaseModel):
     customerId: str
     customerFirstName: str
     customerLastName: str
-    openingBalance: Optional[int]
+    openingBalance: Optional[int] = 0
 
     @validator("openingBalance")
     def not_negative(cls, val):
