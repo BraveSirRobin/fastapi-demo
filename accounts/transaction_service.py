@@ -1,3 +1,7 @@
+"""A wrapper to call the transactions service and handle basic error conditions.
+
+Would be better with some kind of Swagger / OpenAPI front-end
+"""
 import httpx
 
 

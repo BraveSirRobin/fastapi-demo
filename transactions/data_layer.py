@@ -1,3 +1,5 @@
+"""Domain model definitions and persistence adapters
+"""
 from uuid import uuid4
 from datetime import datetime
 from typing import List

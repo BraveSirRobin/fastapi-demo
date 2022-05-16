@@ -1,6 +1,6 @@
+"""Types which define the input/output of the HTTP API"""
 from datetime import datetime
 from typing import Optional, List
-"""Types which define the input/output of the API"""
 from pydantic import BaseModel, validator
 
 class TransactionDetail(BaseModel):

@@ -1,4 +1,4 @@
-"""Data model classes and persistence adapters
+"""Domain model classes and persistence adapters
 """
 from uuid import uuid4
 from typing import Dict
