@@ -4,6 +4,7 @@ This repo is a demo of some of the enterprise features available in the Python F
 ## Setting up your enviroment
 You'll need to install Poetry, then run:
 ```
+pip install poetry
 poetry install
 poetry shell
 ```
