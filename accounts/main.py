@@ -9,7 +9,6 @@ from .config import AccountsServiceConfig
 app_config = AccountsServiceConfig()
 app = FastAPI()
 AccountDS = InMemoryAccountDatastore()
-print(app_config.transaction_service_url)
 
 
 @app.post("/open", response_model=NewAccountOutput)
@@ -29,7 +28,8 @@ async def open(new_ac_detail: NewAccountInput):
             trans_service = TransactionService(app_config.transaction_service_url)
             r = await trans_service.call_new_transaction(account.accountId, new_ac_detail.openingBalance)
             response_params["openingBalanceTransaction"] = TransactionDetail(**r)
-        except TransactionServiceException:
+        except TransactionServiceException as tsx:
+            print(tsx)
             response_params["faultMessage"] = "failed to store opening balance transaction"
     return NewAccountOutput(**response_params)
 

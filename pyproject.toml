@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "blueharvest"
 version = "0.1.0"
-description = "Blueharvest tech test"
+description = "FastAPI portfolio piece"
 authors = ["Robin Harvey <harvey.robin@gmail.com>"]
 
 [tool.pytest.ini_options]

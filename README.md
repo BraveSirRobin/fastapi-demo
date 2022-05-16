@@ -20,10 +20,12 @@ poetry shell
 For local development you'll need to enter the Poetry shell then run both services, e.g. using the Makefile
 ```
 poetry shell
-make run-accounts-service && make run-transactions-service
+make run-accounts-service &
+make run-transactions-service &
 wait
 ```
 
 ## Missing features
 * Better logging support, probably using structlog
-* Some kind of swagger UI client for the accounts service to use when calling the transactions service
+* Some kind of swagger UI client for the accounts service to use when calling the transactions service.  [This library looks like a good fit](https://github.com/commonism/aiopenapi3/) but it wasn't working when I tested it, I think it's being ported from an older library at the time of writing.
+
